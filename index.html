@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: wheat;
+        }
+        .stakan{
+            width: 250px;
+            height: 300px;
+            border-radius: 0 0 10px 10px;
+            background-color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            
+
+            
+        }
+        button{
+            border: none;
+
+            width: 110px;
+            height: 40px;
+            background-color: red;
+            border-radius: 10px;
+           
+            position: absolute;
+            top: 560px;
+        }
+        .water{
+            text-align: center;
+            height: 20px;
+            width: 250px;
+            opacity: 0.6;
+            background-color: blue;
+            border-radius: 0 0 10px 10px;
+
+        }
+        .plus{
+            cursor: pointer;
+            position: absolute;
+            left: 610px;
+            font-size: 30px;
+
+        }
+        .minus{
+            cursor: pointer;
+            font-size: 30px;
+            background-color: blue;
+        }
+        .gradus{
+            border-radius: 20px;
+            
+
+            width: 60px;
+            height: 300px;
+           position: relative;left: 80px;
+            
+
+        }
+        .row{
+            cursor: pointer;
+
+           
+            padding: 4px;
+            border-radius: 2px;
+            text-align: center;
+            width: 60px;
+            height: 30px;
+           
+            border: 1px solid #333;
+        }
+        .setting{
+            box-shadow: 0 3px 5px #999;
+           
+            position: absolute;
+            top: 30px;
+            left: 1400px;
+            width: 50px;
+            height: 50px;
+            background-color:  white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .set{
+           
+            position: absolute;
+            left: 1150px;
+            top: 80px;
+            width: 230px;
+            height: 220px;
+            border-radius: 10px;
+            background-color:  white;
+            box-shadow: 0 3px 5px #999;
+        }
+        .text{
+            position: relative;
+            top: 10px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 23px;
+        }
+        .tex{
+            position: relative;
+            top: 20px;
+            left: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 15px;
+
+            
+        }
+        .te{
+            position: relative;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 23px;
+            top: 30px;
+        }
+        .t{
+            position: relative;
+            text-align: center;
+            top: 40px;
+           
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 20px;
+        }
+    
+
+        
+       
+       
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="setting" id="setting">
+            <img class="im" src="setting.png" alt="">
+
+         
+
+        </div>
+        <div class="set" id="set">
+            <p class="text">Порада</p>
+            <p class="tex">Потрібно пити 2 літри вдень</p>
+            <p class="te">Калькулятор</p>
+            <p class="t">10 = 20</p>
+        </div>
+        <div class="stakan">
+            <div class="water" id="water"></div>
+            <button class="plus" id="plus">+</button>
+            <button class="minus" id="minus">-</button>
+        </div>
+        <div class="gradus">
+            <div class="row" id="row">100</div>
+            <div class="row" id="row">90</div>
+            <div class="row" id="row">80</div>
+            <div class="row" id="row">70</div>
+            <div class="row" id="row">60</div>
+            <div class="row" id="row">50</div>
+            <div class="row" id="row">40</div>
+            <div class="row" id="row">30</div>
+            <div class="row" id="row">20</div>
+            <div class="row" id="row">10</div>
+        </div>
+
+
+      
+    </div>
+    <script>
+        let water = 10;
+       
+      
+        plus.onclick = function(){
+            if(water<=90){
+                water += 10;
+                $('#water').css('height', water + '%')
+                
+            }
+        }
+        minus.onclick = function(){
+            if(water<=100){
+                water -= 10;
+                $('#water').css('height', water + '%')
+                
+            }
+        }
+
+        $('#set').hide(0);
+        $('#setting').click(function() {
+            $('#set').fadeIn(400);
+           
+ 
+        })
+        $('#setting').dblclick(function() {
+            $('#set').fadeOut(400);
+           
+ 
+        })
+
+      
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
